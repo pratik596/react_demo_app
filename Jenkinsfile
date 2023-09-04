@@ -9,15 +9,15 @@ pipeline {
         }
         stage("Build & Test"){
             steps{
-                sh "docker build . -t node-app-test-new"
+                sh "docker build . -t react-app-test-new"
             }
         }
         stage("Push to DockerHub"){
             steps{
                 withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                    sh "docker tag node-app-test-new ${env.dockerHubUser}/node-app-test-new:latest"
-                    sh "docker push ${env.dockerHubUser}/node-app-test-new:latest" 
+                    sh "docker tag node-app-test-new ${env.dockerHubUser}/react-app-test-new:latest"
+                    sh "docker push ${env.dockerHubUser}/react-app-test-new:latest" 
                 }
             }
         }
