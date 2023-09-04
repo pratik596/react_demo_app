@@ -4,7 +4,7 @@ pipeline {
     stages{
         stage("Code"){
             steps{
-                git url: "https://github.com/pratik596/react_demo_app.git", branch: "master"
+                git url: "https://github.com/pratik596/react_demo_app.git", branch: "main"
             }
         }
         stage("Build & Test"){
